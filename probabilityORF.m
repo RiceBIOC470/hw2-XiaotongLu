@@ -1,4 +1,5 @@
-function ORFgood=findORF(N)
+function Pro=probabilityORF(N,N_ORF)
+for xx=1:1000
 dnaseq=randdnaseq(N);
 Dnaseq=upper(dnaseq);
 startcodon=strfind(Dnaseq,'ATG');
@@ -22,8 +23,12 @@ for ii=1:length(startcodon)%do the circulation to every startcodon and start the
 end
 ORFsize=firststopcodon-startcodon+3;
 ORFgood=ORFsize(ORFsize>N_ORF);
-
-
+Length=length(ORFgood);
+xx=xx+1;
+end
+Pro=Length/1000;
+    
+    
 
 function randomSeq = randdnaseq(N)
 % returns a random dna sequence of length N
